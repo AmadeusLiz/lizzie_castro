@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %} 
+    TAREA 1 LIZZIE CASTRO
+{% endblock %}
+
+{% block container %} 
+    <h1 class="mb-5">Calculadora de Préstamos</h1>
+    <div class="row">
+        <!-- FORMULARIO -->
+        <div class="col-3">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="monto">Monto</label>
+                    <input type="text" name="monto" id="monto" class="form-control" required autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="tasa">Tasa</label>
+                    <input type="text" name="tasa" id="tasa" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="plazo">Plazo</label>
+                    <input type="text" name="plazo" id="plazo" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-success btn-block" value="Calcular">
+                </div>
+            </form>
+        </div>
+        <!-- DATOS -->
+        <div class="col-9">
+            <table class="table table-sm table-hover">
+
+                <thead>
+                    <tr>
+                        <th>Monto</th>
+                        <th>Tasa</th>
+                        <th>Plazo</th>
+                        <th>Cuota</th>
+                        <th>Total a pagar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in prestamos %}
+                    <tr>
+                        <td>{{ p.monto }}</td>
+                        <td>{{ p.tasa }}</td>
+                        <td>{{ p.plazo }}</td>
+                        <td>{{ p.cuota }}</td>
+                        <td>{{ p.total_pagar }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

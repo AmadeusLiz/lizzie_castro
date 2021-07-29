@@ -1,4 +1,4 @@
-# lizzie_castro
+# App DJANGO URL-VISTA-PLANTILLA
 Tarea 1, Negocios Web 2002
 
 Crear un proyecto de Django con su nombre_apellido y una aplicación de nombre app1. 
